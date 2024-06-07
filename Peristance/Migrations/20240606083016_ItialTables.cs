@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Peristance.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCityTable : Migration
+    public partial class ItialTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

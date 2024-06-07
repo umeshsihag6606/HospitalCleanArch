@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using Application.Features.Countries.Commands.CreateCountries;
+using AutoMapper;
+using Domain.Entities.Counteries;
 using System.Reflection;
 
 namespace Application.Comman.Mappings;
@@ -8,6 +10,7 @@ public class Mapping : Profile
     public Mapping()
     {
         // mapping  custom
+        CreateMap<CreateCountryCommand, Countary>();
         ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
     }
     private void ApplyMappingsFromAssembly(Assembly assembly)

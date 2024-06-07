@@ -12,8 +12,8 @@ using Peristance.DataContexts;
 namespace Peristance.Migrations
 {
     [DbContext(typeof(ApplicationdbContext))]
-    [Migration("20240606074433_AddCityTable")]
-    partial class AddCityTable
+    [Migration("20240606083016_ItialTables")]
+    partial class ItialTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -51,9 +51,13 @@ namespace Peristance.Extenstion.Repositories
             return data;
         }
 
-        public Task<List<T>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var data = await _dbContext
+                 .Set<T>()
+                 .Where(x => !x.IsDeleted)
+                 .ToListAsync();
+            return data;
         }
 
         public async Task<T>GetById(int id)

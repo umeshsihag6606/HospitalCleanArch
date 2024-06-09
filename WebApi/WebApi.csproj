@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Infarastructer\Infarastructer.csproj" />
     <ProjectReference Include="..\Peristance\Peristance.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />

@@ -1,7 +1,11 @@
-﻿using Application.Features.Countries.Commands.CreateCountries;
+﻿using Application.Features.Cities.Command.CreateCity;
+using Application.Features.Countries.Commands.CreateCountries;
+using Application.Features.Employees.Command.CreateEmployees;
 using Application.Features.States.Commands.CreateStates;
 using AutoMapper;
+using Domain.Entities.Cities;
 using Domain.Entities.Counteries;
+using Domain.Entities.Employees;
 using Domain.Entities.States;
 using System.Reflection;
 
@@ -14,6 +18,8 @@ public class Mapping : Profile
         // mapping  custom
         CreateMap<CreateCountryCommand, Countary>();
         CreateMap<CreateStateCommand, State>();
+        CreateMap<CreateCityCommand,City>();
+        CreateMap<CreateEmployeeCommand,Employee>();
         ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
     }
     private void ApplyMappingsFromAssembly(Assembly assembly)

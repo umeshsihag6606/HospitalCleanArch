@@ -23,6 +23,9 @@ namespace Peristance.Extenstion.Repositories
             _contextAccessor = contextAccessor;
         }
         public IQueryable<T> Entities=>_dbContext.Set<T>();
+
+       
+
         public async Task<T>AddAsync(T entity)
         {
             var userid = Convert.ToInt32(_contextAccessor.HttpContext.User.FindFirstValue("id"));
@@ -78,9 +81,6 @@ namespace Peristance.Extenstion.Repositories
             return Task.CompletedTask;
         }
 
-        IQueryable<T> IGenericRepositary<T>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

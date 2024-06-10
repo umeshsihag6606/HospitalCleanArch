@@ -9,7 +9,7 @@ namespace Application.Interfaces.GenericRepositories
 {
     public interface IGenericRepositary<T> where T : class,IEntity
     {
-        IQueryable<T> GetAll();
+        IQueryable<T> Entities { get; }
         Task<List<T>> GetAllAsync();
         Task<T> GetById(int id);
         Task<T> AddAsync(T entity);

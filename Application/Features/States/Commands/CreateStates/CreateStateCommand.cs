@@ -28,7 +28,7 @@ namespace Application.Features.States.Commands.CreateStates
             var checkcountary = await _unitOfWork.Repositary<Countary>().GetById(request.CounatryId);
             if(checkcountary == null)
             {
-                return Result<int>.BaRequest("Invalid Countary Id...");
+                return Result<int>.BadRequest("Invalid Countary Id...");
             }
             var mapData = _mapper.Map<State>(request);
             await _unitOfWork.Repositary<State>().AddAsync(mapData);

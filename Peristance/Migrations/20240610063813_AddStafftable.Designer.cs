@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Peristance.DataContexts;
 
@@ -11,9 +12,11 @@ using Peristance.DataContexts;
 namespace Peristance.Migrations
 {
     [DbContext(typeof(ApplicationdbContext))]
-    partial class ApplicationdbContextModelSnapshot : ModelSnapshot
+    [Migration("20240610063813_AddStafftable")]
+    partial class AddStafftable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,14 +102,7 @@ namespace Peristance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CityId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CreateBy")
@@ -117,7 +113,7 @@ namespace Peristance.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FatherName")
                         .IsRequired()
@@ -134,9 +130,8 @@ namespace Peristance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MobileNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<long>("MobileNumber")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -145,14 +140,6 @@ namespace Peristance.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("MobileNumber")
-                        .IsUnique();
 
                     b.ToTable("Staffs");
                 });
@@ -203,17 +190,6 @@ namespace Peristance.Migrations
                         .IsRequired();
 
                     b.Navigation("State");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Staffs.Staff", b =>
-                {
-                    b.HasOne("Domain.Entities.Cities.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("Domain.Entities.States.State", b =>

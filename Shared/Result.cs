@@ -52,7 +52,7 @@ public class Result<T> : IResult<T>
     }
     #endregion
     #region Bad Request
-    public static Result<T> BaRequest(string message)
+    public static Result<T> BadRequest(string message)
     {
         return new Result<T>
         {
